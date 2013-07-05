@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests\Tests.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinktecture.AuthorizationServer.EF", "Thinktecture.AuthorizationServer.EF\Thinktecture.AuthorizationServer.EF.csproj", "{8D40FCEB-B25A-4EC3-81CC-201F7BBF41CF}"
 EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AuthzorizationServer.Cloud", "..\..\AuthzorizationServer.Cloud\AuthzorizationServer.Cloud.ccproj", "{DBCFBC4E-A247-4DF3-ADBF-8F2C4EDD9DF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,10 @@ Global
 		{8D40FCEB-B25A-4EC3-81CC-201F7BBF41CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D40FCEB-B25A-4EC3-81CC-201F7BBF41CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D40FCEB-B25A-4EC3-81CC-201F7BBF41CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBCFBC4E-A247-4DF3-ADBF-8F2C4EDD9DF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBCFBC4E-A247-4DF3-ADBF-8F2C4EDD9DF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBCFBC4E-A247-4DF3-ADBF-8F2C4EDD9DF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBCFBC4E-A247-4DF3-ADBF-8F2C4EDD9DF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,5 +65,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{22E5D61F-DFF0-4B36-A737-C09DCCC332F1} = {7FC0E4A5-696A-495D-9456-180794A71E28}
 		{E317F79E-23B3-4D52-B869-2DC80215934E} = {7FC0E4A5-696A-495D-9456-180794A71E28}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal

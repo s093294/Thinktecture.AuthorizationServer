@@ -26,9 +26,12 @@
         <thead>
             <tr>
                 <th></th>
-                <th>Subject</th>
-                <th>Client</th>
                 <th>Created</th>
+                <th>Expiration</th>
+                <th>Subject</th>
+                <th>Type</th>
+                <th>Client</th>
+                <th>Application</th>
             </tr>
         </thead>
         <tbody data-bind="foreach: tokens">
@@ -49,9 +52,12 @@
                         </ul>
                     </div>
                 </td>
-                <td data-bind="text:subject"></td>
-                <td data-bind="text:client"></td>
                 <td data-bind="text: created"></td>
+                <td data-bind="text: expiration"></td>
+                <td data-bind="text:subject"></td>
+                <td data-bind="text: type"></td>
+                <td data-bind="text: client"></td>
+                <td data-bind="text: application"></td>
             </tr>
         </tbody>
     </table>
