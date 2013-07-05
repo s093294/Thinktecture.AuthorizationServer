@@ -22,3 +22,9 @@
 .nav-pills .dropdown-menu {
   border-radius: 0;
 }
+td {
+  white-space: nowrap;
+}
+td.icon {
+  padding-left: 20px;
+}
