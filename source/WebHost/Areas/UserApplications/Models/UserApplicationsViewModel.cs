@@ -3,6 +3,7 @@
  * see license.txt
  */
 
+using System.Collections.Generic;
 using System.Security.Claims;
 
 namespace Thinktecture.AuthorizationServer.WebHost.Areas.UserApplications.Models
@@ -15,6 +16,11 @@ namespace Thinktecture.AuthorizationServer.WebHost.Areas.UserApplications.Models
             {
                 return ClaimsPrincipal.Current.GetSubject();
             }
+        }
+
+        public IEnumerable<Claim> Claims
+        {
+            get { return ClaimsPrincipal.Current.Claims; }
         }
 
 

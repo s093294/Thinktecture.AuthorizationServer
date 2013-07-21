@@ -3,6 +3,7 @@
  * see license.txt
  */
 
+using System;
 using System.IdentityModel.Services;
 using System.Net;
 using System.Threading.Tasks;
@@ -12,23 +13,30 @@ namespace Thinktecture.AuthorizationServer.WebHost.Controllers
 {
     public class AccountController : Controller
     {
-        public async Task<ActionResult> SignOut()
+        public ActionResult SignOut()
         {
-            if (User.Identity.IsAuthenticated)            
+            var config = FederatedAuthentication.FederationConfiguration.WsFederationConfiguration;
+
+            string callbackUrl = Url.Action("Index", "Home", routeValues: null, protocol: Request.Url.Scheme);
+            var signoutMessage = new SignOutRequestMessage(new Uri(config.Issuer),callbackUrl);
+            signoutMessage.SetParameter("wtrealm",config.Realm);
+
+            FederatedAuthentication.WSFederationAuthenticationModule.SignOut();
+
+            return new RedirectResult(signoutMessage.WriteQueryString());
+        }
+        public ActionResult SignIn()
+        {
+            if (Request.IsAuthenticated)
             {
-                var authModule = FederatedAuthentication.WSFederationAuthenticationModule;
-                var url = WSFederationAuthenticationModule.GetFederationPassiveSignOutUrl(authModule.Issuer, authModule.Realm, null);
-                var request = WebRequest.Create(url);
-                var task = request.GetResponseAsync();
-
-                authModule.SignOut();
-
-
-                var result = await task;
-                
-                
+                return RedirectToAction("Index", "Home");
             }
-            return View();
+            string callbackUrl = Url.Action("Index", "Home", routeValues: null, protocol: Request.Url.Scheme);
+            var signInRequest = FederatedAuthentication.WSFederationAuthenticationModule.CreateSignInRequest(
+                uniqueId: string.Empty,
+                returnUrl: callbackUrl,
+                rememberMeSet: false);
+            return new RedirectResult(signInRequest.RequestUrl.ToString());
         }
 
     }

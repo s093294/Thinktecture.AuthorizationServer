@@ -4,6 +4,11 @@
 }
 
 <h2>@ViewBag.Title for User: @Model.Subject</h2>
+@foreach (var claim in Model.Claims)
+{
+    <div><span>@claim.Type</span> <span>@claim.Value</span></div>
+}
+
 <div class="hide" data-bind="css: { hide: !applications().length }">
     <ul class="nav nav-pills">
         <li><button class="btn" data-bind="click:deleteAll">Remove All</button></li>
@@ -30,3 +35,7 @@
 <p data-bind="css:{hide:applications().length}" class="hide alert alert-warning">
     No Applications Found
 </p>
+
+<div >
+
+</div>
