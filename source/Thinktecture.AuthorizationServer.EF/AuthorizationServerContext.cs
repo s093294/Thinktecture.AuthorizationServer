@@ -25,6 +25,7 @@ namespace Thinktecture.AuthorizationServer.EF
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.HasDefaultSchema("authz");
             modelBuilder.Entity<Client>().HasMany(x => x.RedirectUris).WithRequired();
             modelBuilder.Entity<Application>().HasMany(x => x.Scopes).WithRequired();
             modelBuilder.Entity<Scope>().HasMany(x => x.AllowedClients).WithMany();
